@@ -8,6 +8,7 @@ import pymongo
 from django.conf import settings
 import matplotlib.pyplot as plt
 import numpy as np
+from django.views.decorators.csrf import csrf_exempt
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 import pandas as pd
 import json
@@ -19,6 +20,7 @@ from django import forms
 connect_string = "mongodb://db-django:RCW66AYz3nLpEzi0Xg38j6Rhyu82Q6lHtJdmy04zLZExvBAiW3riy9xXnu3b8PgsF6r09kAaodenBd55TKTR1g==@db-django.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@db-django@"
 
 
+@csrf_exempt
 def Courses(request):
     ddl_code = 'TSLA'
     if request.method == "POST":
