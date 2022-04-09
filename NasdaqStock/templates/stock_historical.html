@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Historical</title>
+</head>
+<body>
+<h1>Stock Historical</h1>
+<div>
+    <form action="" method="POST" id="task-form">
+        {% csrf_token %}
+        Select Stock Code:
+        <select name="stock_var" id="stock_var">
+          {% for code in stock_codes%}
+          <option value="{{ code }}" {% if ddl_code == code %} selected{% endif %}>{{ code }}</option>
+          {% endfor %}
+        </select>
+        <button type="submit" value="Generate">Generate Chart</button>
+    </form>
+</div>
+<div id="reset">
+    <img src="data:image/png;base64,{{ data }}" alt="" height="500" width="500">
+</div>
+
+</body>
+</html>
